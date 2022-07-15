@@ -142,7 +142,6 @@ private:
         for(int i = 0; i < NUM_THRUSTERS; i++) {
             rov_interfaces::msg::PWM msg;
             msg.angle_or_throttle = static_cast<float>(throttles(i,0)); // this is a source of noise in output signals, may cause system instability??
-            msg.is_continuous_servo = true;
             msg.channel = thruster_index_to_PWM_pin.at(i);
             _publisher->publish(msg);
         }
@@ -233,7 +232,6 @@ private:
         for(int i = 0; i < NUM_THRUSTERS; i++) {
             rov_interfaces::msg::PWM msg;
             msg.angle_or_throttle = static_cast<float>(throttles(i,0)); // this is a source of noise in output signals, may cause system instability??
-            msg.is_continuous_servo = true;
             msg.channel = thruster_index_to_PWM_pin.at(i);
             _publisher->publish(msg);
         }

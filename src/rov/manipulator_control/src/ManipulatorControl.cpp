@@ -62,13 +62,6 @@ private:
         messages[2].channel = ServoMap::LEVEL;
         messages[3].channel = ServoMap::WRIST;
         messages[4].channel = ServoMap::CLAMP;
-        
-        // should remove this
-        messages[0].is_continuous_servo = false;
-        messages[1].is_continuous_servo = false;
-        messages[2].is_continuous_servo = false;
-        messages[3].is_continuous_servo = false;
-        messages[4].is_continuous_servo = false;
 
         messages[0].angle_or_throttle = msg->elbow;
         messages[1].angle_or_throttle = 180-msg->elbow;

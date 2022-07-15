@@ -3,16 +3,18 @@
 <package format="3">
   <name>heartbeat</name>
   <version>0.0.0</version>
-  <description>Send out heartbeat messages from basestation every 50ms. If ROV does not hear heartbeat for 100ms, it will shutdown automatically</description>
+  <description>TODO: Package description</description>
   <maintainer email="zac71113@gmail.com">yameat</maintainer>
   <license>TODO: License declaration</license>
 
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
-    <build_type>ament_python</build_type>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>

@@ -25,11 +25,11 @@
 using namespace std::chrono_literals;
 
 // Testing Pipeline
-// const std::string pipeline = std::string("videotestsrc ! video/x-raw,format=RGBA ! appsink");
+const std::string pipeline = std::string("v4l2src device=/dev/video0 io-mode=2 ! video/x-raw,format=YUY2,width=320,height=240,framerate=30/1 ! videoconvert ! appsink");
 
 // Release Pipeline
 // IF YOU TOUCH THIS I WILL KILL YOU
-const std::string pipeline = std::string("v4l2src device=%s io-mode=2 ! image/jpeg,framerate=30/1,width=320,height=240 ! nvv4l2decoder mjpeg=1 ! nvvidconv ! video/x-raw(memory:NVMM),format=NV12 ! nvvidconv ! video/x-raw,format=RGBA ! videoconvert ! video/x-raw,format=BGR ! videoconvert ! appsink");
+// const std::string pipeline = std::string("v4l2src device=%s io-mode=2 ! image/jpeg,framerate=30/1,width=320,height=240 ! nvv4l2decoder mjpeg=1 ! nvvidconv ! video/x-raw(memory:NVMM),format=NV12 ! nvvidconv ! video/x-raw,format=RGBA ! videoconvert ! video/x-raw,format=BGR ! videoconvert ! appsink");
 
 
 template<typename ... Args>

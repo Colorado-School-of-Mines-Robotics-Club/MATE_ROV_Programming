@@ -1,10 +1,23 @@
-FROM csmmaterobotics/commonv8:latest
+FROM csmmaterobotics/commonv8.2:latest
 
 # Location where source files will be copied in and built
 # By default, this is root, which makes colcon build not work at all
 WORKDIR /opt/ros/CSM_MATE_WS
 
 # Base station specific dependencies
+
+## raylib
+# dependencies
+RUN apt-get install -y libasound2-dev mesa-common-dev libx11-dev libxrandr-dev libxi-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev
+
+RUN git clone https://github.com/raysan5/raylib.git raylib && \
+    cd raylib && \
+    mkdir build && cd build && \
+    # see https://github.com/raysan5/raylib/wiki/CMake-Build-Options
+    cmake -DBUILD_SHARED_LIBS=ON .. && \
+    make && \
+    make install
+    
 # Probably don't use VENV. Colcon has a rough time with it and it's not worth it
 # RUN python3.6 -m venv /BASE_VENV
 RUN python3.8 -m pip install flask evdev

@@ -1,4 +1,4 @@
-FROM csmmaterobotics/commonv8:latest
+FROM csmmaterobotics/commonv8.2:latest
 
 # Location where source files will be copied in and built
 WORKDIR /opt/ros/CSM_MATE_WS
@@ -18,16 +18,17 @@ COPY setup/rov_entrypoint.sh .
 #     rosdep install --ignore-src -y src/rov/
 RUN . /opt/ros/$ROS_DISTRO/install/setup.sh && \
     colcon build --symlink-install --packages-select \
-    bar02 \
-    bno055 \
-    flight_controller \
-    manipulator_control \
-    pca9685_node \
+    # bar02 \
+    # bno055 \
+    # flight_controller \
+    # manipulator_control \
+    # pca9685 \
     rov_cameras \
-    rov_estop \
-    rov_interfaces \
-    rov_launch \
-    rov_statistics \
+    # rov_control \ 
+    # rov_estop \
+    # rov_interfaces \
+    # rov_launch \
+    # rov_statistics \
     --cmake-args -DPID=true --no-warn-unused-cli
 
 # Copy over initial run stuff.
